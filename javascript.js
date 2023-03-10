@@ -1,4 +1,7 @@
 const rps = ["ROCK", "PAPER", "SCISSORS"];
+let playerScore = 0;
+let computerScore = 0;
+let rounds = 0;
 function getComputerChoice() {
 
     let rng = Math.floor(Math.random() * 3);
@@ -9,10 +12,10 @@ function getComputerChoice() {
 function playRound() {
     let result;
 
-    var player =  getPlayerChoice(this);
+    var player = getPlayerChoice(this);
     var computer = getComputerChoice();
-    
-    
+
+
     if (player == "ROCK") {
         if (computer == "PAPER") {
             result = "You Lose! Paper beats Rock";
@@ -39,19 +42,20 @@ function playRound() {
         }
     }
     console.log('Player: ' + player + ' | Computer: ' + computer);
-    return result;
+    console.log(result);
+
+    getScore(result);
 }
 
 function getPlayerChoice(btnClicked) {
-    for(var i = 0; i<btnClicked.classList.length; i++){
+    for (var i = 0; i < btnClicked.classList.length; i++) {
         if (rps.includes(btnClicked.classList[i].toUpperCase())) return btnClicked.classList[i].toUpperCase();
     }
 }
 
 
 function game() {
-    let playerScore = 0;
-    let computerScore = 0;
+
     let round;
     for (let i = 0; i < 5; i++) {
         round = playRound(getPlayerChoice(), getComputerChoice())
@@ -73,8 +77,34 @@ function game() {
     }
 }
 
-const playerButtons = document.querySelectorAll(".playerBtn");
+function getScore(round) {
+    if (round.includes("Win")) {
+        playerScore++;
+    } else if (round.includes("Lose")) {
+        computerScore++;
+    }
+    let scores = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
+    console.log(scores);
+    rounds++;
 
+    if (rounds == 5) {
+        
+        if (playerScore > computerScore) {
+            console.log("\nYou Win!! :)");
+        } else if (playerScore < computerScore) {
+            console.log("\nYou Lose! :(");
+        } else {
+            console.log("\nGAME ENDS IN DRAW!");
+        }
+        rounds = 0;
+        playerScore = 0;
+        computerScore = 0;
+    }
+}
+
+
+
+const playerButtons = document.querySelectorAll(".playerBtn");
 playerButtons.forEach(playerBtn => playerBtn.addEventListener('click', playRound));
 
 //game();
