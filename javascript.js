@@ -6,9 +6,13 @@ function getComputerChoice() {
     return rps[rng];
 }
 
-function playRound(player, computer) {
+function playRound() {
     let result;
 
+    var player =  getPlayerChoice(this);
+    var computer = getComputerChoice();
+    
+    
     if (player == "ROCK") {
         if (computer == "PAPER") {
             result = "You Lose! Paper beats Rock";
@@ -38,12 +42,10 @@ function playRound(player, computer) {
     return result;
 }
 
-function getPlayerChoice() {
-    let playerChoice;
-    do {
-        playerChoice = prompt("Pick: ROCK/PAPER/SCISSORS").toUpperCase();
-    } while (!rps.includes(playerChoice));
-    return playerChoice;
+function getPlayerChoice(btnClicked) {
+    for(var i = 0; i<btnClicked.classList.length; i++){
+        if (rps.includes(btnClicked.classList[i].toUpperCase())) return btnClicked.classList[i].toUpperCase();
+    }
 }
 
 
@@ -71,5 +73,8 @@ function game() {
     }
 }
 
+const playerButtons = document.querySelectorAll(".playerBtn");
 
-game();
+playerButtons.forEach(playerBtn => playerBtn.addEventListener('click', playRound));
+
+//game();
