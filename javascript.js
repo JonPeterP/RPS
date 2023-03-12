@@ -73,29 +73,6 @@ function getPlayerChoice(btnClicked) {
     }
 }
 
-
-function game() {
-    let round;
-    for (let i = 0; i < 5; i++) {
-        round = playRound(getPlayerChoice(), getComputerChoice())
-        console.log(round);
-        if (round.includes("Win")) {
-            playerScore++;
-        } else if (round.includes("Lose")) {
-            computerScore++;
-        }
-        let scores = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
-        console.log(scores);
-    }
-    if (playerScore > computerScore) {
-        console.log("\nYou Win!! :)");
-    } else if (playerScore < computerScore) {
-        console.log("\nYou Lose! :(");
-    } else {
-        console.log("\nDRAW!");
-    }
-}
-
 function getScore(round) {
 
     if (round.includes("Win")) {
@@ -106,12 +83,12 @@ function getScore(round) {
     let scores = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
     console.log(scores);
 
-    rounds++;
+   
 
     playerScoreTxt.textContent = playerScore;
     computerScoreTxt.textContent = computerScore;
 
-    if (rounds == 5) {
+    if (playerScore == 5 || computerScore == 5) {
 
         if (playerScore > computerScore) {
             winnerTxt.textContent = "YOU WIN!!";
@@ -126,14 +103,27 @@ function getScore(round) {
 
             console.log("\nGAME ENDS IN DRAW!");
         }
-        rounds = 0;
-        playerScore = 0;
-        computerScore = 0;
+
+        playerButtons.forEach(playerBtn => playerBtn.disabled = true);
+        retryDiv.style.display = "block";
     }
 
 }
 
+function playAgain(){
+    //Reset scores, winnerTxt, and choices
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreTxt.textContent = playerScore;
+    computerScoreTxt.textContent = computerScore;
+    winnerTxt.textContent = "-";
 
+    retryDiv.style.display = "none";
+    playerButtons.forEach(playerBtn => playerBtn.disabled = false);
+    playerTxt.textContent = "Player";
+    computerTxt.textContent = "Computer";
+
+}
 
 const playerButtons = document.querySelectorAll(".playerBtn");
 playerButtons.forEach(playerBtn => playerBtn.addEventListener('click', playRound));
@@ -143,5 +133,10 @@ const playerScoreTxt = document.querySelector(".playerScoreTxt");
 const computerScoreTxt = document.querySelector(".computerScoreTxt");
 const roundWinTxt = document.querySelector(".roundWinTxt");
 const winnerTxt = document.querySelector(".winnerTxt");
-
+const retryDiv = document.querySelector("#retryDiv");
+const retryBtn = document.querySelector(".retryBtn");
+retryBtn.addEventListener('click', playAgain);
+console.log(retryBtn)
+retryDiv.style.display = "none";
+winnerTxt.textContent = "-";
 //game();

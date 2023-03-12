@@ -1,3 +1,10 @@
+body{
+    background-color: #1B262C;
+    color: #BBE1FA;
+    display: flex;
+    flex-direction: column;
+}
+
 li{
     list-style: none;
     
@@ -29,3 +36,16 @@ ul{
     min-width: 500px;
     text-align: center;
 }
+
+#retryDiv{
+    text-align: center;
+}
+
+
+/* color palette
+https://colorhunt.co/palette/1b262c0f4c753282b8bbe1fa
+#1B262C
+#0F4C75
+#3282B8
+#BBE1FA
+*/
