@@ -1,51 +1,92 @@
-body{
+body {
     background-color: #1B262C;
     color: #BBE1FA;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
 }
 
-li{
-    list-style: none;
-    
+button {
+    border: 0 none;
+    outline: 0 none;
 }
-ul{
+
+#headingTxt {
+    display: flex;
+    padding-left: 96px;
+    /* Why even is this idk*/
+    justify-content: space-evenly;
+    gap: 128px;
+    margin-bottom: 48px;
+
+}
+
+#headingTxt h1 {
+    font-weight: 700;
+    font-size: 48px;
+}
+
+li {
+    list-style: none;
+
+}
+
+ul {
     padding: 0;
     display: flex;
     gap: 20px;
     justify-content: center;
 }
 
-.choiceTxt, .scoresTxt{
+.choiceTxt,
+.scoresTxt {
     display: flex;
     justify-content: space-evenly;
     margin: 26px 32px;
 }
 
-.scoresItem{
+.scoresItem {
     min-width: 200px;
     text-align: center;
 }
 
-.choiceItem{
+.choiceItem {
     min-width: 200px;
     text-align: center;
 }
 
-.winnerTxt{
+.winnerDiv {
     min-width: 500px;
+    min-height: 100px;
     text-align: center;
 }
 
-#retryDiv{
+#retryDiv {
     text-align: center;
 }
 
+.playerBtn {
+    background-color: #1B262C;
+
+
+    border: 1px solid #0F4C75;
+    box-shadow: -1px 1px #0F4C75,
+        -2px 2px #0F4C75,
+        -3px 3px #0F4C75,
+        -4px 4px #0F4C75,
+        -5px 5px #0F4C75;
+
+    padding: 5px;
+    margin: 24px;
+}
 
 /* color palette
 https://colorhunt.co/palette/1b262c0f4c753282b8bbe1fa
 #1B262C
-#0F4C75
+
 #3282B8
 #BBE1FA
 */

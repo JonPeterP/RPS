@@ -105,7 +105,8 @@ function getScore(round) {
         }
 
         playerButtons.forEach(playerBtn => playerBtn.disabled = true);
-        retryDiv.style.display = "block";
+        playerBtnDiv.style.display = "none";
+        retryDiv.style.display = "flex";
     }
 
 }
@@ -117,6 +118,8 @@ function playAgain(){
     playerScoreTxt.textContent = playerScore;
     computerScoreTxt.textContent = computerScore;
     winnerTxt.textContent = "-";
+
+    playerBtnDiv.style.display = "flex";
 
     retryDiv.style.display = "none";
     playerButtons.forEach(playerBtn => playerBtn.disabled = false);
@@ -135,6 +138,9 @@ const roundWinTxt = document.querySelector(".roundWinTxt");
 const winnerTxt = document.querySelector(".winnerTxt");
 const retryDiv = document.querySelector("#retryDiv");
 const retryBtn = document.querySelector(".retryBtn");
+
+const playerBtnDiv = document.querySelector(".playerButtons");
+
 retryBtn.addEventListener('click', playAgain);
 console.log(retryBtn)
 retryDiv.style.display = "none";
