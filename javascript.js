@@ -145,4 +145,4 @@ retryBtn.addEventListener('click', playAgain);
 console.log(retryBtn)
 retryDiv.style.display = "none";
 winnerTxt.textContent = "-";
-//game();
+//test push
