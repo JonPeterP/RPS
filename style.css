@@ -16,11 +16,9 @@ button {
 
 #headingTxt {
     display: flex;
-    padding-left: 96px;
     /* Why even is this idk*/
-    justify-content: space-evenly;
-    gap: 128px;
     margin-bottom: 48px;
+    color: #3282B8;
 
 }
 
@@ -66,27 +64,46 @@ ul {
 
 #retryDiv {
     text-align: center;
+    justify-content: center;
 }
 
-.playerBtn {
+.playerBtn,
+.retryBtn{
     background-color: #1B262C;
-
-
-    border: 1px solid #0F4C75;
-    box-shadow: -1px 1px #0F4C75,
-        -2px 2px #0F4C75,
-        -3px 3px #0F4C75,
-        -4px 4px #0F4C75,
-        -5px 5px #0F4C75;
-
-    padding: 5px;
+    border: 2px solid #BBE1FA;
     margin: 24px;
+    width: 128px;
+    height: 128px;
+}
+
+.retryBtn{
+    color: #BBE1FA;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+
+.playerBtn.rock{
+    background:url('./images/rock.png') center no-repeat; 
+    background-size: 85% 85%;
+}
+.playerBtn.paper{
+    background:url('./images/paper.png') center no-repeat; 
+    background-size: 85% 85%;
+}
+.playerBtn.scissors{
+    background:url('./images/scissors.png') center no-repeat; 
+    background-size: 85% 85%;
+}
+.gameButtons{
+    min-height: 208px;
+    display: flex;
 }
 
 /* color palette
 https://colorhunt.co/palette/1b262c0f4c753282b8bbe1fa
 #1B262C
-
+#0F4C75
 #3282B8
 #BBE1FA
 */

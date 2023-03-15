@@ -91,10 +91,10 @@ function getScore(round) {
     if (playerScore == 5 || computerScore == 5) {
 
         if (playerScore > computerScore) {
-            winnerTxt.textContent = "YOU WIN!!";
+            winnerTxt.textContent = "WIN";
             console.log("\nYou Win!! :)");
         } else if (playerScore < computerScore) {
-            winnerTxt.textContent = "YOU LOSE! :(";
+            winnerTxt.textContent = "LOSE";
 
             console.log("\nYou Lose! :(");
         } else {
